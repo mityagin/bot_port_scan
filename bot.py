@@ -1,12 +1,13 @@
-import re
 import socket
 import telebot
 import threading
+import configparser
 
+config = configparser.ConfigParser()
+config.read("config.ini")
+token = config['Telegram']['bot_token']
 
-bot = telebot.TeleBot('1285622549:AAHFdOKbWYXDRIxXcfPPoA6f3oCdkoeHUZ4')
-
-# ip = socket.gethostbyname("zipta.ru")
+bot = telebot.TeleBot(token)
 
 
 @bot.message_handler(content_types=['text'])
